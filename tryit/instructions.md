@@ -16,37 +16,19 @@ console.log("Hello World!");
 node server.js
 ```
 
-## 03: Create a Script in your package.json file
-```
-"scripts": {
-  "start": "babel-node server.js"
-}
-```
-```bash
-npm run start
-```
-
-## 04: Install Express
-```bash
-npm install express --save
-```
-
-## 05: Install the Babel-watch dev tool
-```bash
-npm i babel-watch --save-dev
-```
-
-## 06: Use this package.json and install all dependencies
+## 03: Use this package.json and install all dependencies
 ```
 {
-  "name": "nodejs-tryit",
+  "name": "nodejs-tutorial",
   "version": "1.0.0",
-  "description": "Trying Node",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "start": "babel-node server.js",
     "dev": "babel-watch server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jackson",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -65,24 +47,27 @@ npm i babel-watch --save-dev
     ]
   }
 }
+
 ```
 ```bash
 npm i
 ```
 
-## 07: Import our dependencies in server.js
+## 04: Import our dependencies in server.js
 ```
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+
+const app = express();
 ```
 
-## 08: Set up static serving
+## 05: Set up static serving
 ```
 app.use(express.static(path.join(__dirname, 'public')));
 ```
 
-## 09: Make the server listen
+## 06: Make the server listen
 ```
 const PORT = 3000;
 app.listen(PORT, () => {
@@ -90,7 +75,7 @@ app.listen(PORT, () => {
 });
 ```
 
-## 10: EJS Route
+## 07: EJS Route
 ```
 let posts = [
   {
@@ -107,7 +92,7 @@ app.get('/', (req, res) => {
 });
 ```
 
-## 11: Dynamic EJS Rendering
+## 08: Dynamic EJS Rendering
 In the blank space of index.ejs
 ```
 <% posts.forEach((post, index) => { %>
@@ -123,7 +108,7 @@ In the blank space of index.ejs
 <% }) %>
 ```
 
-## 12: Handle Editing
+## 09: Handle Editing
 ```
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -147,7 +132,7 @@ app.post('/', (req, res) => {
 });
 ```
 
-## 13: Read API
+## 10: Read API
 ```
 app.use(bodyParser.json())
 
@@ -158,7 +143,7 @@ app.get('/api/posts', (req, res) => {
 });
 ```
 
-## 14: Read by id API
+## 11: Read by id API
 ```
 app.get('/api/posts/:id', (req, res) => {
   if (posts[req.params.id]) {
@@ -169,7 +154,7 @@ app.get('/api/posts/:id', (req, res) => {
 });
 ```
 
-## 15: Create API
+## 12: Create API
 ```
 app.post('/api/posts', (req, res) => {
   posts.push({
@@ -180,7 +165,7 @@ app.post('/api/posts', (req, res) => {
 });
 ```
 
-## 16: Update API
+## 13: Update API
 ```
 app.put('/api/posts/:id', (req, res) => {
   if (posts[req.params.id]) {
@@ -195,7 +180,7 @@ app.put('/api/posts/:id', (req, res) => {
 });
 ```
 
-## 17: Delete API
+## 14: Delete API
 ```
 app.delete('/api/posts/:id', (req, res) => {
   if (posts[req.params.id]) {
