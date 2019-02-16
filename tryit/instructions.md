@@ -19,7 +19,7 @@ node server.js
 ## 03: Use this package.json and install all dependencies
 ```
 {
-  "name": "nodejs-complete",
+  "name": "nodejs-tutorial",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
