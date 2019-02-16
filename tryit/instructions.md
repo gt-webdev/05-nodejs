@@ -19,31 +19,31 @@ node server.js
 ## 03: Use this package.json and install all dependencies
 ```
 {
-  "name": "nodejs-tutorial",
+  "name": "nodejs-complete",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node server.js",
-    "dev": "babel-watch server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx babel-node server.js",
+    "dev": "npx babel-watch server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "body-parser": "^1.18.2",
-    "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
   },
   "devDependencies": {
-    "babel-watch": "^2.0.7"
+    "babel-watch": "^7.0.0"
   },
   "babel": {
     "presets": [
-      "env"
+      "@babel/preset-env"
     ]
   }
 }
